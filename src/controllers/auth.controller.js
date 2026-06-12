@@ -46,8 +46,7 @@ const authController = {
       '+password'
     );
 
-    // !user || user.password !== hashPassword(password) SORRR?
-    if (user?.password !== hashPassword(password)) {
+    if (!user || user.password !== hashPassword(password)) {
       throw new CustomError('username/email or password is wrong.', 401);
     }
 

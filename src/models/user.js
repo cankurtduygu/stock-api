@@ -10,6 +10,7 @@ const userSchema = new mongoose.Schema(
       trim: true,
       required: true,
       unique: true,
+      index: true
     },
     firstName: {
       type: String,
@@ -32,7 +33,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       trim: true,
       required: [true, 'Email field must be required.'],
-      unique: [true, 'There is this email. Email field must be unique.'],
+      unique: true,
       validate: [
         (email) => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email),
         'Please fill a valid email address',
@@ -66,4 +67,4 @@ userSchema.pre("save", function (next) {
   next();
 });
 
-export default mongoose.model('User', userSchema);
+export default mongoose.model('Users', userSchema);

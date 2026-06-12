@@ -1,5 +1,7 @@
 "use strict"
 
+import CustomError from "../helpers/customError.js";
+
 
 const errorHandler = (err, req, res, next) => {
 
@@ -10,6 +12,10 @@ const errorHandler = (err, req, res, next) => {
         body: req.body,
         stack: err.stack
     });
+};
+
+const notFoundHandler= (req, res, next) => {
+    next(new CustomError('route not Found',404))
 }
 
-export default errorHandler;
+export { errorHandler, notFoundHandler };

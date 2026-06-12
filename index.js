@@ -3,12 +3,8 @@ import  dbConnection  from './src/config/dbConnection.js';
 
 import app from './server.js';
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8000;
 
-
-app.all('/stock', (req, res) => {
-  res.status(200).json({ message: "Stock API is running 🚀" });
-});
 
 const server = app.listen(PORT, async () => {
   // DB Connection
