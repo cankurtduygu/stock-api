@@ -15,3 +15,21 @@ bu sekilde yazmistim ama mongoosse da unique da desteklenmez message kismi o yü
 --> Joi HTTP request doğrulama (Joi = Kapıdaki güvenlik görevlisi)
 --> Mongoose Database doğrulama (Mongoose = Kasadaki güvenlik görevlisi)
 Kapıdan kaçarsa bile kasada yakalanır.
+###
+
+Mongoose 9'da pre hook'una next parametre olarak verince Mongoose onu farklı yorumluyor — sync hook zannetmiyor, bir şeyler karışıyor.
+İki güvenli yöntem var:
+1. Async, next'siz (yeni yöntem, Mongoose 6+):
+javascriptuserSchema.pre("save", async function() {
+  if (this.isModified("password") || this.isModified("role")) {
+    this.refreshToken = null;
+  }
+});
+2. Sync, next'li (eski yöntem, hâlâ çalışır):
+javascriptuserSchema.pre("save", function(next) {
+  if (this.isModified("password") || this.isModified("role")) {
+    this.refreshToken = null;
+  }
+  next();
+});
+İkisi de çalışmalı ama senin durumunda 2. yöntem hata verdi. Mongoose 9 ile async yöntem daha güvenli, öyle devam et.

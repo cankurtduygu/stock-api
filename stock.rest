@@ -6,3 +6,33 @@ GET {{baseUrl}}
 
 ###
 
+
+# @name userList
+get {{baseUrl}}/users
+
+###
+
+# @name userCreate
+post {{baseUrl}}/users
+Content-Type: application/json
+
+{
+  "username": "test7",
+  "email": "test7@test.com",
+  "password": "Test1234?!",
+  "firstName": "test7",
+  "lastName": "test7"
+}
+
+###
+
+# @name userUpdate
+put {{baseUrl}}/users/6a2bd1a4263aca87f222f7a3
+Content-Type: application/json
+
+{
+    "password": "Test1234!"
+}
+
+###
+

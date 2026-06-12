@@ -2,6 +2,7 @@
 
 import Purchase from "../models/Purchases.js"
 import CustomError from "../helpers/customError.js";
+import queryHandler from "../middlewares/queryHandler.js";
 
 const purchaseController = {
     list: async (req, res) => {

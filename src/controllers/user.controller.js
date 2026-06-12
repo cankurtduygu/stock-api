@@ -3,6 +3,7 @@
 import Users from '../models/user.js';
 import CustomError from '../helpers/customError.js';
 import userSchema from '../helpers/joiSchemas.js';
+import queryHandler from "../middlewares/queryHandler.js";
 
 const userController = {
     list: async (req, res) => {

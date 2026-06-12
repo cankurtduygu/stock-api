@@ -2,6 +2,7 @@
 
 import Product from "../models/Products.js"
 import CustomError from "../helpers/customError.js";
+import queryHandler from "../middlewares/queryHandler.js";
 
 const productController = {
     list: async (req, res) => {

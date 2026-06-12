@@ -9,6 +9,7 @@ import {
   generateRefreshToken,
 } from '../helpers/generateJwt.js';
 
+
 const authController = {
   register: async (req, res) => {
     const user = await User.create(req.body);

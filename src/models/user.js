@@ -2,6 +2,7 @@
 
 import mongoose from 'mongoose';
 import hashPassword from '../helpers/passwordEncrypt.js';
+import CustomError from '../helpers/customError.js';
 
 const userSchema = new mongoose.Schema(
   {
@@ -60,11 +61,10 @@ const userSchema = new mongoose.Schema(
   { collection: 'users', timestamps: true }
 );
 
-userSchema.pre("save", function (next) {
+userSchema.pre("save", async function() {
   if (this.isModified("password") || this.isModified("role")) {
     this.refreshToken = null;
   }
-  next();
 });
 
 export default mongoose.model('Users', userSchema);

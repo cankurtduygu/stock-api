@@ -2,6 +2,7 @@
 
 import Sale from "../models/Sales.js"
 import CustomError from "../helpers/customError.js";
+import queryHandler from "../middlewares/queryHandler.js";
 
 const saleController = {
     list: async (req, res) => {

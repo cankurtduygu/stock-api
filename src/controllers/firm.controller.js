@@ -2,6 +2,7 @@
 
 import Frim from "../models/Firms.js"
 import CustomError from "../helpers/customError.js";
+import queryHandler from "../middlewares/queryHandler.js";
 
 const firmController = {
     list: async (req, res) => {

@@ -2,6 +2,7 @@
 
 import Brand from "../models/brands.js"
 import CustomError from "../helpers/customError.js";
+import queryHandler from "../middlewares/queryHandler.js";
 
 const brandController = {
     list: async (req, res) => {

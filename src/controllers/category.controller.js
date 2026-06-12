@@ -2,6 +2,7 @@
 
 import Category from "../models/categories.js";
 import CustomError from "../helpers/customError.js";
+import queryHandler from "../middlewares/queryHandler.js";
 
 const categoryController = {
  list: async (req, res) => {
